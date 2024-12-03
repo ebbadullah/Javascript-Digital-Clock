@@ -1,0 +1,387 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.box {
+    width: 400px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Glassmorphism blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.Clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 48px; /* Large luxurious digits */
+    font-weight: bold;
+    color: #FFD700; /* Gold digits */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8); 
+}
+
+#hou, #min, #sec {
+    color: #FFD700; 
+}
+
+#am {
+    font-size: 24px; 
+    padding-left: 10px;
+    color: #00FFAB; 
+    text-shadow: 0 0 10px rgba(0, 255, 171, 0.8); 
+}
+
+.Date {
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3); 
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    background: linear-gradient(45deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5)); /* Neon gradient */
+    z-index: -1;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 0, 150, 0.8), 0 0 30px rgba(0, 204, 255, 0.8); /* Outer neon glow */
+}
+
+.btn-s{
+
+    display: flex;
+    justify-content: end;
+align-items: end;    
+gap: 50px;
+    margin-top: 400px;
+margin-left: -300px;}
+button{
+    font-size: 18px;
+    color: snow;
+    background: linear-gradient(-45deg, #3c85a0, rgb(47, 47, 107));
+padding-inline: 35px;   
+padding-block: 15px; border-radius: 13px;
+border: none;
+outline: none;
+transition: all .2s;cursor: pointer;
+
+
+}
+button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="Clock">
+            <div id="hou">00</div> :
+            <div id="min">00</div> :
+            <div id="sec">00</div> 
+            <div id="am"></div> 
+            </div>
+        <div  id="date" class="Date">
+        </div>
+        
+     
+
+            </div>
+            <div class="btn-s">
+                <button class="btn"     id="start">Start</button>
+                <button class="btn-1"  id="stop">Stop</button>
+            </div>
+
+
+
+
+
+
+            <script>
+
+
+
+
+// let hour = document.getElementById("hou")
+// let second = document.getElementById("min")
+// let min = document.getElementById("sec")
+// let pm = document.getElementById("PM")
+
+// let getdate = new Date ()
+// date.innerText = getdate.toDateString();
+
+
+// function clock (){
+// let time = new Date ();
+// hour.innerText = time.getHours ();
+// min.innerText = time.getMinutes();
+// second.innerText = time.getSeconds();
+
+// let apm = hour >= 12 ? "PM" : "AM"
+//     am.innerText = apm
+
+
+
+
+// }
+
+// setInterval(()=>{
+
+//     clock();
+
+
+// },1000)
+let start = document.getElementById("start")
+let stop = document.getElementById("stop")
+let hour = document.getElementById("hou");
+let min = document.getElementById("min");
+let second = document.getElementById("sec");
+let pm = document.getElementById("am");
+let date = document.getElementById("date");
+
+let getdate = new Date();
+date.innerText = getdate.toDateString(); 
+let = intervalID ;
+function clock() {
+  let time = new Date();
+
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+  let seconds = time.getSeconds();
+
+  let ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12; 
+
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  hour.innerText = hours;
+  min.innerText = minutes;
+  second.innerText = seconds;
+  pm.innerText = ampm;
+}
+
+
+
+start.addEventListener ("click",  function(){
+
+if(!intervalID ){
+    intervalID =  setInterval (clock , 1000)
+
+}
+
+});
+
+
+stop.addEventListener ("click",  function(){
+
+    clearInterval(intervalID ); 
+    intervalID  = null; 
+
+});
+
+
+            </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .box {
+            width: 400px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .Clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        #hou, #min, #sec {
+            color: #FFD700;
+        }
+
+        #am {
+            font-size: 24px;
+            padding-left: 10px;
+            color: #00FFAB;
+            text-shadow: 0 0 10px rgba(0, 255, 171, 0.8);
+        }
+
+        .Date {
+            margin-top: 15px;
+            font-size: 18px;
+            letter-spacing: 1.5px;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            background: linear-gradient(45deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5));
+            z-index: -1;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 150, 0.8), 0 0 30px rgba(0, 204, 255, 0.8);
+        }
+
+        .btn-s {
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            gap: 50px;
+            margin-top: 400px;
+            margin-left: -300px;
+        }
+
+        button {
+            font-size: 18px;
+            color: snow;
+            background: linear-gradient(-45deg, #3c85a0, rgb(47, 47, 107));
+            padding-inline: 35px;
+            padding-block: 15px;
+            border-radius: 13px;
+            border: none;
+            outline: none;
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="Clock">
+            <div id="hou">00</div> :
+            <div id="min">00</div> :
+            <div id="sec">00</div>
+            <div id="am"></div>
+        </div>
+        <div id="date" class="Date"></div>
+    </div>
+    <div class="btn-s">
+        <button class="btn" id="start">Start</button>
+        <button class="btn-1" id="stop">Stop</button>
+    </div>
+
+    <script>
+        let start = document.getElementById("start");
+        let stop = document.getElementById("stop");
+        let hour = document.getElementById("hou");
+        let min = document.getElementById("min");
+        let second = document.getElementById("sec");
+        let pm = document.getElementById("am");
+        let date = document.getElementById("date");
+
+        let getdate = new Date();
+        date.innerText = getdate.toDateString();
+
+        let intervalID;
+
+        function clock() {
+            let time = new Date();
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 ? '0' + hours:hours ;
+            hours = hours ? hours : 12 ;
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            hour.innerText = hours;
+            min.innerText = minutes;
+            second.innerText = seconds;
+            pm.innerText = ampm;
+        }
+
+        start.addEventListener("click", function () {
+            if (!intervalID) {
+                intervalID = setInterval(clock, 1000);
+            }
+        });
+
+        stop.addEventListener("click", function () {
+            clearInterval(intervalID);
+            intervalID = null;
+        });
+    </script>
+</body>
+</html>
